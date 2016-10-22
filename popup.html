@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Poe.trade custom whisper</title>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+<h1>Poe.trade Custom Whisper</h1>
+    <div class="title">Template</div>
+    <textarea id="template">@{nickname} Hi, I would like to buy your {item_name} listed for {price} in {league} (stash tab "{tab}"; position: left {positionx}, top {positiony})</textarea>
+    <div class="title">Template for a new offer</div>
+    <textarea id="new_offer_template"> ||||||||||||||||||||||||||||||||||||||||||| NEW OFFER : </textarea>
+    <div class="button"><button id="save_template">Save templates</button></div>
+    <div id="validity-message-container">
+      <div id="success-message">
+        Template saved succesfully.
+      </div>
+      <div id="failure-message">
+        Error, Missing elements in the template: <span id='missing-elements'></span>
+      </div>
+    </div>
+    <div>
+      <div class="title">Mandatory elements to put into your template :</div>
+      <ul>
+        <li>{nickname}</li>
+        <li>{item_name}</li>
+        <li>{price}</li>
+        <li>{league}</li>
+        <li>{tab}</li>
+        <li>{positionx}</li>
+        <li>{positiony}</li>
+      </ul>
+    </div>
+  </body>
+</html>
