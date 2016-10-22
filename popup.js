@@ -7,21 +7,13 @@ function storeTemplate() {
     new_offer_template = $("#new_offer_template").val();
 		$("#missing-elements").text("");
 		if (checkTemplate(template) === 0) {
-			if (!template && !new_offer_template) {
-				//Failure message for user here
-				console.log('Error: No value specified');
-		       return;
-			} else {
-				chrome.storage.local.set({"template": template, "new_offer_template": new_offer_template}, function(obj) {
-					$("#success-message").fadeIn();
-					$("#failure-message").hide();
-					console.log("template saved");
-				});
-			}
+			chrome.storage.local.set({"template": template, "new_offer_template": new_offer_template}, function(obj) {
+				$("#success-message").fadeIn();
+				$("#failure-message").hide();
+			});
 		} else {
 			$("#success-message").hide();
 			$("#failure-message").fadeIn();
-			console.log("template not saved");
 		}
 	});
 }
@@ -45,7 +37,6 @@ function checkTemplate(template) {
 		console.log(!pattern.test(template));
 		if (!pattern.test(template)) {
 			$("#missing-elements").append(elements[i] + " ");
-			console.log(elements[i] + " is missing!");
 			checker = -1;
 		}
 	}

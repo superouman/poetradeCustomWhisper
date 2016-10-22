@@ -34,18 +34,15 @@ function templateReplace(result, template, item_info) {
 }
 
 function copyToClipboard(template) {
-	document.getElementById("copy_box").select();
 	$("#copy_box").text(template);
 	document.getElementById("copy_box").select();
 	document.execCommand("copy");
-	console.log("copy : " + $("#copy_box").text());
 }
 
 function generateTemplate() {
 	$(".whisper-btn").on("click", function() {
 		var template;
 		var item_info = GetItemInfo($(this));
-		console.log(item_info);
 
 		chrome.storage.local.get("template", function(result) {
 			if (chrome.runtime.lastError) {
@@ -90,7 +87,7 @@ function initialisation() {
 			$(this).after('<li><a href="#" onclick="return false" class="whisper-btn-new-offer"> New Offer</a></li>');
 		});
 		$("#main").after("<textarea id='copy_box'></textarea>");
-		$("#copy_box");
+		$("#copy_box").css({width: "0px", height: "0px"});
 }
 
 generateTemplate();
